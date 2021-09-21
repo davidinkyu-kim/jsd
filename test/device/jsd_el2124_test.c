@@ -58,10 +58,14 @@ void command(void* self) {
   assert(self);
   single_device_server_t* sds = (single_device_server_t*)self;
 
-  cmd_output[0] ^= 0x01;
-  cmd_output[1] ^= 0x01;
-  cmd_output[2] ^= 0x01;
-  cmd_output[3] ^= 0x01;
+//  cmd_output[0] ^= 0x01;
+//  cmd_output[1] ^= 0x01;
+//  cmd_output[2] ^= 0x01;
+//  cmd_output[3] ^= 0x01;
+  cmd_output[0] = 0x01;
+  cmd_output[1] = 0x00;
+  cmd_output[2] = 0x01;
+  cmd_output[3] = 0x01;
 
   jsd_el2124_write_all_channels(sds->jsd, slave_id, cmd_output);
 }
